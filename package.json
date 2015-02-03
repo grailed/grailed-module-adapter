@@ -1,0 +1,22 @@
+{
+  "name": "grailed-module-adapter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "David Tsuji",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.11.2",
+    "include-all": "^0.1.6",
+    "require-directory": "^2.0.0",
+    "sc-is": "0.0.3",
+    "sc-merge": "^1.0.1",
+    "underscore": "^1.7.0"
+  },
+  "devDependencies": {
+    "should": "^4.6.2"
+  }
+}
