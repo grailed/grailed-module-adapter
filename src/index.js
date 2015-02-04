@@ -20,18 +20,7 @@ module.exports = function ( _dirname, _name, _options ) {
 
 	theModule.name = _name;
 	theModule.options = options;
-
-	if ( is.not.an.array( theModule.options.routes ) && is.empty( theModule.options.routes ) ) {
-		try {
-			theModule.options.routes = require( path.join( _dirname, 'routes' ) )( theModule );
-		} catch ( e ) {
-		}
-	} else if ( is.not.an.array( theModule.options.routes ) && is.not.empty( theModule.options.routes ) ) {
-		throw new Error( 'The module `' + theModule.name + '` has routes defined but it is not an Array.' );
-	}
-
-	// Initiate the routes
-	if ( theModule.options.routes ) theModule.router = require( './router' )( theModule );
+	theModule.router = require( './router' )( theModule );
 
 	modules[ theModule.name ] = theModule;
 
