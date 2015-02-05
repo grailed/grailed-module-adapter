@@ -1,9 +1,9 @@
 module.exports = function ( _module ) {
 	return [ {
-		path: '/user/login',
+		path: '/login',
 		post: _module.controller.login
 	}, {
-		path: '/user/:id',
+		path: '/:id',
 		get: _module.controller.getById
 	} ];
 };
