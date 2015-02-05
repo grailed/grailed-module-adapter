@@ -1,9 +1,9 @@
-var config = require( './config' );
+var config = require( '../config' );
 
 describe( 'grailed module adapter', function () {
 
 	it( 'should work', function () {
-		var userModule = require( path.join( __dirname, 'modules/user' ) );
+		var userModule = require( path.join( process.cwd(), 'test/modules/user' ) );
 
 		userModule.name.should.eql( 'user' );
 		userModule.router.should.be.a.Function;
