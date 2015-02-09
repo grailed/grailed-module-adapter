@@ -8,7 +8,7 @@ module.exports = function(_module) {
     routes,
     router = express.Router();
 
-  var dir = path.join(module.options.dirname, '../routes');
+  var dir = path.join(module.options.dirname, '../routes.js');
   if (fs.existsSync(dir)) {
     routes = require(dir)(module);
   }
