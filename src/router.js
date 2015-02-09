@@ -4,10 +4,14 @@ module.exports = function(_module) {
     module = _module,
     express = require('express'),
     path = require('path'),
+    fs = require('fs'),
     routes,
     router = express.Router();
 
-  routes = require(path.join(module.options.dirname, '../routes'))(module);
+  var dir = path.join(module.options.dirname, '../routes');
+  if (fs.existsSync(dir)) {
+    routes = require(dir)(module);
+  }
 
   if (routes && !Array.isArray(routes)) throw new Error('The routes for the module ' + module.name + ' is not a valid Array.');
 
