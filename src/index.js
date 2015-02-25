@@ -20,9 +20,10 @@ module.exports = function ( _dirname, _name ) {
 
 	theModule.name = _name;
 	theModule.options = options;
-	theModule.router = require( './router' )( theModule );
+	theModule.initRouter = function () {
+		theModule.router = require( './router' )( theModule );
+	}
 
 	modules[ theModule.name ] = theModule;
-
 	return theModule;
 };
