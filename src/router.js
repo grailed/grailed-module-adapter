@@ -18,18 +18,23 @@ module.exports = function ( _module ) {
 	if ( routes ) {
 		routes.forEach( function ( _route ) {
 			Object.keys( _route ).forEach( function ( _verb ) {
-				var route = _route[ _verb ],
-					errorString = 'The route `' + _verb.toUpperCase() + ' ' + _route.path + '` for the module `' + module.name + '` was not an Array or Function';
+				var route = _route[ _verb ];
 
 				if ( _verb === 'path' ) return;
 
-				if ( is.not.an.array( route ) && is.not.a.func( route ) )
-					throw new Error( errorString );
+				if ( is.not.an.array( route ) && is.not.a.func( route ) ) {
+					throw new Error( 'The route `' + _verb.toUpperCase() + ' ' + _route.path + '` for the module `' + module.name + '` was not an Array or Function' );
+				}
 
 				if ( is.an.array( route ) ) {
-					_.each( route, function ( _middleware ) {
-						if ( is.not.an.array( _middleware ) && is.not.a.func( _middleware ) ) throw new Error( errorString );
-					} );
+					var middleware;
+					for ( var i = 0; i < route.length; i++ ) {
+						middleware = route[ i ];
+						if ( is.not.an.array( middleware ) && is.not.a.func( middleware ) ) {
+							throw new Error( 'The middleware in route `' + _verb.toUpperCase() + ' ' + _route.path + '` for the module `' + module.name + '` was not an Array or Function with index ' + i );
+						}
+					}
+
 				}
 
 				router[ _verb ]( _route.path, route );
