@@ -3,7 +3,10 @@ var modules = {};
 module.exports = function ( _dirname, _name ) {
 
 	// If the module has already been parsed stop and return it
-	if ( modules[ _name ] ) return modules[ _name ];
+	if ( modules[ _name ] ) {
+		console.warn( 'Attempted to add the `' + _name + '` module more than once. Maybe you want to rename it?' )
+		return modules[ _name ];
+	}
 
 	var is = require( 'sc-is' ),
 		path = require( 'path' ),
