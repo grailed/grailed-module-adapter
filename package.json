@@ -9,7 +9,7 @@
   "author": "David Tsuji",
   "license": "MIT",
   "peerDependencies": {
-    "grailed": "^4.3.0"
+    "grailed": "^5.0.0"
   },
   "dependencies": {
     "express": "^4.11.2",
