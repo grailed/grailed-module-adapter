@@ -8,9 +8,6 @@
   },
   "author": "David Tsuji",
   "license": "MIT",
-  "peerDependencies": {
-    "grailed": "^5.0.0"
-  },
   "dependencies": {
     "express": "^4.11.2",
     "include-all": "^0.1.6",
